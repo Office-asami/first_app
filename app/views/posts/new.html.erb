@@ -1,0 +1,21 @@
+<h1>新規投稿ページ<h1>
+
+<%# <form action="/posts" method="post">
+  <input type="text" name="content">
+  <input type="submit" value="投稿する">
+</form> %>
+
+
+<%# action属性とは、リクエスト先のURLを指定する属性です。上記の例ではaction="/posts"
+と記載されていました。これは、ローカルサーバーで起動しているアプリケーションにおいては
+localhost:3000/postsへ、フォームに記載した内容がリクエストとして送信されることを意味しています。
+method属性とは、リクエストに使用されるHTTPメソッドを指定する属性です。
+
+上記の例ではmethod="post"と記載されています。
+これは、フォームに記載した内容を送信する際のHTTPメソッドとして、データを送信する際に使用するPOST
+を指定していることを意味しています。 %>
+
+<%= form_with url: "/posts", method: :post, local: true do |form| %>
+  <%= form.text_field :content %>
+  <%= form.submit '投稿する'%>
+<% end %>
